@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const HomePage = () => {
-  return (
-    <div>HomePage</div>
-  )
-}
+import { auth } from "@/auth";
 
-export default HomePage
+const HomePage = async () => {
+  const session = await auth();
+
+  console.log(session);
+
+  return <div>HomePage</div>;
+};
+
+export default HomePage;

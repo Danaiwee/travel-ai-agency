@@ -61,6 +61,10 @@
     @apply text-[24px] font-bold leading-[31.2px];
   }
 
+  .h3-bold {
+    @apply text-[20px] font-bold leading-[28px];
+  }
+
   .paragraph-regular {
     @apply text-[16px] font-normal leading-[22.4px];
   }

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 import { ROUTES } from "@/constants/routes";
 
@@ -18,7 +19,7 @@ const LeftSidebar = () => {
   const username = "Danai Weerayutwattana";
   const email = "danai.weerayut@gmail.com";
 
-  const userId = false;
+  const userId = true;
 
   return (
     <Sidebar>
@@ -50,6 +51,7 @@ const LeftSidebar = () => {
                 width={40}
                 height={40}
                 className="rounded-full object-cover"
+                onClick={() => signOut()}
               />
               <div>
                 <p className="text-sm font-semibold text-gray-700">
@@ -60,7 +62,11 @@ const LeftSidebar = () => {
                 </p>
               </div>
             </div>
-            <form action="Logout">
+            <form
+              action={async () => {
+                await signOut();
+              }}
+            >
               <Button type="submit" className="!bg-transparent">
                 <Image
                   src="/icons/logout.svg"
@@ -73,7 +79,7 @@ const LeftSidebar = () => {
             </form>
           </div>
         ) : (
-          <Link href={ROUTES.SIGN_IN} className='p-2'>
+          <Link href={ROUTES.SIGN_IN} className="p-2">
             <Button className="min-h-[56px] w-full rounded-lg border px-4 py-3 shadow-none cursor-pointer">
               Sign in
             </Button>

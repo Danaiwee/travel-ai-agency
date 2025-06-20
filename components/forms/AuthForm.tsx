@@ -47,6 +47,9 @@ const AuthForm = <T extends FieldValues>({
         onSubmit={form.handleSubmit(handleSubmit)}
         className="mt-10 space-y-4 border-b border-gray-200 pb-3"
       >
+        <h1 className='h3-bold'>
+          {formType === "SIGN_IN" ? "SIGN IN" : "SIGN UP" }
+        </h1>
         {Object.keys(defaultValues).map((field) => (
           <FormField
             key={field}
