@@ -21,4 +21,15 @@ declare global {
     params: Promise<Record<string, string>>;
     searchParams: Promise<Record<string, string>>;
   };
+
+  interface User {
+    _id: string;
+    name: string;
+    username: string;
+    email: string;
+    image?: string;
+    itineraryCreated: number;
+    status: "user" | "admin";
+    createdAt: string;
+  }
 }

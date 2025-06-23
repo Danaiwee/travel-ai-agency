@@ -15,3 +15,11 @@ interface AuthCredentials {
   email: string;
   password: string;
 }
+
+interface PaginatedSearchParams {
+  page?: number;
+  pageSize?: number;
+  query?: string;
+  filter?: string;
+  sort?: string;
+}

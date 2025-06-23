@@ -8,7 +8,7 @@ import { ROUTES } from "@/constants/routes";
 
 const DashboardPage = () => {
   return (
-    <article className="w-full mt-5 md:mt-10 px-5 sm:px-16">
+    <article className="article-container">
       <Header
         title="Welcome Adrian 👋"
         description="Track Activity, trends, and popular destination in real time"

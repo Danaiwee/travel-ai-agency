@@ -1,3 +1,5 @@
+import { formatDate } from "@/lib/utils";
+
 import { ROUTES } from "./routes";
 
 export const SIDEBAR_LINKS = [
@@ -50,5 +52,35 @@ export const allTrips = [
     tags: ["Historical", "Culture"],
     travelStyle: "Friends",
     estimatedPrice: "$4,000",
+  },
+];
+
+export const users = [
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john.doe@example.com",
+    imageUrl: "/images/michael.webp",
+    dateJoined: formatDate("2025-01-01"),
+    itineraryCreated: 10,
+    status: "user",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    email: "jane.smith@example.com",
+    imageUrl: "/images/david.webp",
+    dateJoined: formatDate("2025-01-02"),
+    itineraryCreated: 4,
+    status: "user",
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    email: "john.smith@example.com",
+    imageUrl: "/images/james.webp",
+    dateJoined: formatDate("2025-01-03"),
+    itineraryCreated: 8,
+    status: "admin",
   },
 ];

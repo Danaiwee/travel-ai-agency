@@ -7,4 +7,5 @@ export const ROUTES = {
   SIGN_UP: "/sign-up",
   CREATETRIP: "/trips/create",
   TRIPDETAILS: (id: string) => `/trips/${id}`,
+  CREATEUSER: "/users/create",
 };
