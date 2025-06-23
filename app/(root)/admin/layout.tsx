@@ -13,7 +13,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
 
       <SidebarProvider>
         <LeftSidebar />
-        <main>
+        <main className="w-full">
           <SidebarTrigger className="hidden" />
           {children}
         </main>
