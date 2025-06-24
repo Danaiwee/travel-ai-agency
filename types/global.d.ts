@@ -32,4 +32,13 @@ declare global {
     status: "user" | "admin";
     createdAt: string;
   }
+
+  interface Trip {
+    _id: string;
+    imageUrls: string[];
+    days: number;
+    city: string[];
+    tags: string[];
+    content: string;
+  }
 }

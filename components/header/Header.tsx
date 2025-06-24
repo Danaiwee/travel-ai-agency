@@ -21,7 +21,7 @@ const Header = ({
   btnLink = ROUTES.CREATETRIP,
 }: HeaderProps) => {
   return (
-    <section className="w-full flex flex-col-reverse gap-5 items-center sm:flex-row sm:justify-between ">
+    <section className="w-full flex flex-col-reverse gap-5 sm:items-center sm:flex-row sm:justify-between ">
       <div className="flex flex-col space-y-3">
         <h1 className="h2-bold text-gray-900">{title}</h1>
         <p className="paragraph-semibold text-gray-500">{description}</p>

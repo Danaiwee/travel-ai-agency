@@ -13,8 +13,6 @@ const UsersPage = async ({ searchParams }: RouteParams) => {
 
   const { users } = data || {};
 
-  console.log(users);
-
   return (
     <article className="article-container">
       <Header
