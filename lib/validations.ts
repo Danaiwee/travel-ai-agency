@@ -98,3 +98,15 @@ export const PaginatedSearchSchema = z.object({
   filter: z.string().optional(),
   sort: z.string().optional(),
 });
+
+export const CreateTripSchema = z.object({
+  country: z
+    .string()
+    .min(1, { message: "Title is required." })
+    .max(100, { message: "Title cannot 100 characters long." }),
+  duration: z.number().min(1, { message: "Duration is required." }),
+  groupType: z.string().min(1, { message: "Group Type is required." }),
+  travelStyle: z.string().min(1, { message: "Travel style is required." }),
+  interests: z.string().min(1, { message: "Interest is required." }),
+  budget: z.string().min(1, { message: "Budget is required" }),
+});

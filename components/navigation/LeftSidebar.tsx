@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 import { ROUTES } from "@/constants/routes";
 
@@ -16,10 +16,12 @@ import {
 } from "../ui/sidebar";
 
 const LeftSidebar = () => {
-  const username = "Danai Weerayutwattana";
-  const email = "danai.weerayut@gmail.com";
+  const session = useSession();
 
-  const userId = true;
+  const userId = session.data?.user?.id || "";
+  const name = session.data?.user?.name || "";
+  const email = session.data?.user?.email || "";
+  const image = session.data?.user?.image || "/icons/profile-avatar.webp";
 
   return (
     <Sidebar>
@@ -46,7 +48,7 @@ const LeftSidebar = () => {
           <div className="flex items-center justify-between p-4 gap-2">
             <div className="flex items-center gap-2">
               <Image
-                src="/images/michael.webp"
+                src={image}
                 alt="Profile Image"
                 width={40}
                 height={40}
@@ -55,7 +57,7 @@ const LeftSidebar = () => {
               />
               <div>
                 <p className="text-sm font-semibold text-gray-700">
-                  {username.slice(0, 15) + "..."}
+                  {name.slice(0, 15) + "..."}
                 </p>
                 <p className="text-sm font-medium text-gray-500 line-clamp-1">
                   {email.slice(0, 15) + "..."}

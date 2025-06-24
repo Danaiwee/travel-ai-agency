@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { auth } from "@/auth";
 import { ROUTES } from "@/constants/routes";
 
 import MobileNavigation from "./MobileNavigation";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
+
+  const profileImage = session?.user?.image || "/icons/profile-avatar.webp"
   return (
     <nav className="md:hidden shadow-gray-100 py-2 px-4 flex items-center justify-between gap-2">
       <Link href={ROUTES.HOME} className="flex items-center gap-2 p-4">
@@ -22,7 +26,7 @@ const Navbar = () => {
       </Link>
       <div className="flex items-center gap-4">
         <Avatar>
-          <AvatarImage src="/images/michael.webp" />
+          <AvatarImage src={profileImage} />
           <AvatarFallback>Profile</AvatarFallback>
         </Avatar>
 

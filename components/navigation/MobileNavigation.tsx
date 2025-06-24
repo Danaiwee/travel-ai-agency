@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { auth } from "@/auth";
 import { ROUTES } from "@/constants/routes";
 
 import NavLinks from "./NavLinks";
@@ -13,11 +14,13 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 
-const MobileNavigation = () => {
-  const username = "Danai Weerayutwattana";
-  const email = "danai.weerayut@gmail.com";
+const MobileNavigation = async () => {
+  const session = await auth();
 
-  const userId = false;
+  const userId = session?.user?.id;
+  const name = session?.user?.name;
+  const email = session?.user?.email;
+  const profileImage = session?.user?.image || "/icons/profile-avatar.webp";
 
   return (
     <Sheet>
@@ -30,7 +33,7 @@ const MobileNavigation = () => {
           className="cursor-pointer invert-50"
         />
       </SheetTrigger>
-      <SheetContent side="left" className="max-w-[250px]">
+      <SheetContent side="left" className="max-w-[350px]">
         <SheetTitle>
           <SheetClose asChild>
             <Link href={ROUTES.HOME} className="flex items-center gap-2 p-4">
@@ -55,7 +58,7 @@ const MobileNavigation = () => {
             <div className="flex items-center justify-between p-4 gap-2">
               <div className="flex items-center gap-2">
                 <Image
-                  src="/images/michael.webp"
+                  src={profileImage}
                   alt="Profile Image"
                   width={40}
                   height={40}
@@ -63,10 +66,10 @@ const MobileNavigation = () => {
                 />
                 <div>
                   <p className="text-sm font-semibold text-gray-700">
-                    {username.slice(0, 15) + "..."}
+                    {name && name.slice(0, 12) + "..."}
                   </p>
                   <p className="text-sm font-medium text-gray-500 line-clamp-1">
-                    {email.slice(0, 15) + "..."}
+                    {email && email.slice(0, 12) + "..."}
                   </p>
                 </div>
               </div>
